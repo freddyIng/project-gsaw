@@ -14,15 +14,11 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
-            <form method="post" action="/signup">
                 <label for="chk" aria-hidden="true">Sign Up</label>
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-
-                <Button>Sign Up</Button>
-
-            </form>
+                <input id="username" type="text" name="username" placeholder="Username" required>
+                <input id="email" type="email" name="email" placeholder="Email" required>
+                <input id="password" type="password" name="password" placeholder="Password" required>
+                <button id="signup">Sign Up</button>
         </div>
 
         <div class="login">
@@ -31,16 +27,26 @@
                 <input type="email" name="username" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <button>Login</button>
-                <!--<a href="principal.html">
-                   <center>Log in</center>
-                </a>-->
-
-
             </form>
-            <!--<script src="registro.php"></script>-->
         </div>
 
     </div>
+    <script type="text/javascript">
+        //Script que servira para enviar los datos con la api fetch al servidor
+        //(async ()=>{
+          const signupButton=document.getElementById('signup');
+          signupButton.addEventListener('click', async ()=>{
+            let data={
+              username: document.getElementById('username').value,
+              email: document.getElementById('email').value,
+              password: document.getElementById('password').value
+            };
+            const request=await fetch('/signup', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
+            const response=await request.json();
+            alert(response.message);
+          });
+        //});
+    </script>
 </body>
 
 </html>

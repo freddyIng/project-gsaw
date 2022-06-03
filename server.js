@@ -32,21 +32,19 @@ app.get('/', (req, res)=>{
 app.post('/signup', (req, res)=>{
   try{
     connection.query(`INSERT INTO users VALUES('${req.body.email}', '${req.body.username}', '${req.body.password}');`, function(err, results, fields) {
-      res.redirect('/sucess');
+      if (err){
+      	console.log(err);
+        res.json({message: 'Error'});
+      } else{
+        res.json({message: 'Operacion exitosa!'})
+      }
     });
   } catch(err){
   	console.log(err);
-  	res.redirect('/error');
+  	res.json({message: 'Error'});
   }
 });
-//Plantillas que se muestran al usuario indicando el resultado del registro
-app.get('/sucess', (req, res)=>{
-  res.sendFile(path.join(__dirname, 'sucess.html'));
-});
 
-app.get('/error', (req, res)=>{
-  res.sendFile(path.join(__dirname, 'error.html'));
-});
 //Uso del modulo passport para iniciar sesion. El username en este caso es el correo
 passport.use(new LocalStrategy(function verify(username, password, cb){
   connection.query(`SELECT * FROM users WHERE email='${username}' AND password='${password}'`, function(err, result, fields){
@@ -82,6 +80,14 @@ app.post('/login', passport.authenticate('local', {
 
 app.get('/home', (req, res)=>{
   res.sendFile(path.join(__dirname, '/principal.html'));
+});
+
+//Cerrar sesion
+app.get('/logout', (req, res)=>{
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 const port=5000;
