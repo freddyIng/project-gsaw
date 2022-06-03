@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>4 Bikers</title>
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form method="post" action="/signup">
+                <label for="chk" aria-hidden="true">Sign Up</label>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+
+                <Button>Sign Up</Button>
+
+            </form>
+        </div>
+
+        <div class="login">
+            <form method="post" action="/login">
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="username" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button>Login</button>
+                <!--<a href="principal.html">
+                   <center>Log in</center>
+                </a>-->
+
+
+            </form>
+            <!--<script src="registro.php"></script>-->
+        </div>
+
+    </div>
+</body>
+
+</html>

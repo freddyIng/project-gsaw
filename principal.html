@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://kit.fontawesome.com/d92be18ab0.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body id="body">
+
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img src="logo.png" width="40px" height="40px">
+            <h4>4Bikers</h4>
+        </div>
+
+        <div class="options__menu">
+
+            <a href="principal.html" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h4>GPS</h4>
+                </div>
+            </a>
+
+            <a href="social.html">
+                <div class="option">
+                    <i class="fa-solid fa-user-group"></i>
+                    <h4>Social</h4>
+                </div>
+            </a>
+
+            <a href="clima.html">
+                <div class="option">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    <h4>Clima</h4>
+                </div>
+
+            </a>
+
+            <a href="gestion.html">
+                <div class="option">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h4>Gestion</h4>
+                </div>
+            </a>
+
+            <a href="transito.html">
+                <div class="option">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <h4>Código tránsito</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main class="main2">
+
+        <div id="myMap" style="height: 650px"></div>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <script src="maps.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
