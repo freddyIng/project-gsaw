@@ -3,9 +3,9 @@ const app=express();
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'freddy',
+  user: 'root',
   database: 'proyecto', 
-  password: 'nikita'
+  password: ''
 });
 const session=require('express-session');
 const passport=require('passport');
@@ -16,6 +16,8 @@ app.use(passport.session());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('styles'));
+app.use(express.static('scripts'));
+app.use(express.static('animated'));
 
 
 //Se usa path para poder usar el metodo que une la ruta de la aplicacion y la plantilla html a enviar
@@ -24,7 +26,7 @@ app.get('/', (req, res)=>{
   if (req.isAuthenticated()){
     res.redirect('/home');
   } else{
-  	res.sendFile(path.join(__dirname, 'index.html'));
+  	res.sendFile(path.join(__dirname, '/index.html'));
   }
 });
 
@@ -78,8 +80,25 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/'
 }));
 
+//Rutas
 app.get('/home', (req, res)=>{
   res.sendFile(path.join(__dirname, '/principal.html'));
+});
+
+app.get('/social', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/social.html'));
+});
+
+app.get('/clima', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/clima.html'));
+});
+
+app.get('/gestion', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/gestion.html'));
+});
+
+app.get('/transito', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/transito.html'));
 });
 
 //Cerrar sesion
@@ -89,6 +108,7 @@ app.get('/logout', (req, res)=>{
     res.redirect('/');
   });
 });
+
 
 const port=5000;
 app.listen(port, () => {  

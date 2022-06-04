@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTION</title>
+
+    <link rel="stylesheet" href="/estilos.css">
+
+    <script src="https://kit.fontawesome.com/d92be18ab0.js" crossorigin="anonymous"></script>
+
+</head>
+<body id="body">
+
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <img src="logo.png" width="40px" height="40px"> <h4>4Bikers</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="/home" >
+                <div class="option">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h4>GPS</h4>
+                </div>
+            </a>
+
+            <a href="/social" >
+                <div class="option">
+                    <i class="fa-solid fa-user-group"></i>
+                    <h4>Social</h4>
+                </div>
+            </a>
+
+            <a href="/clima" >
+                <div class="option">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    <h4>Clima</h4>
+                </div>
+                               
+            </a>
+
+            <a href="/gestion" class="selected">
+                <div class="option">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h4>Gestion</h4>
+                </div>
+            </a>
+
+            <a href="/transito">
+                <div class="option">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <h4>Código tránsito</h4>
+                </div>
+            </a>
+
+      
+        </div>
+
+    </div>
+
+    <main>
+        <h1 class="title">Calendario Interactivo</h1>
+
+        <div class="calendar">
+            <div class="calendar__info">
+                <div class="calendar__prev" id="prev-month">&#9664;</div>
+                <div class="calendar__month" id="month"></div>
+                <div class="calendar__year" id="year"></div>
+                <div class="calendar__next" id="next-month">&#9654;</div>
+            </div>
+        
+            <div class="calendar__week">
+                <div class="calendar__day calendar__item">Lun</div>
+                <div class="calendar__day calendar__item">Mar</div>
+                <div class="calendar__day calendar__item">Mie</div>
+                <div class="calendar__day calendar__item">Jue</div>
+                <div class="calendar__day calendar__item">Vie</div>
+                <div class="calendar__day calendar__item">Sab</div>
+                <div class="calendar__day calendar__item">Dom</div>
+            </div>
+        
+            <div class="calendar__dates" id="dates"></div>
+        </div>
+        
+        
+    </main>
+
+    <script src="/calendar.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html> 
